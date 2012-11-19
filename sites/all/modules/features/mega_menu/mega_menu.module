@@ -11,7 +11,9 @@ include_once 'mega_menu.features.inc';
  */
 
 function mega_menu_init() {
-  // Overrides the default superfish css.
   $path = drupal_get_path('module', 'mega_menu');
+  // Styles the superfish markup to play with Drupal.
   drupal_add_css($path . '/css/mega_menu.css', 'file');
+  // Responsive Behavior
+  drupal_add_css($path . '/css/responsive.css', 'file');
 }
