@@ -25,9 +25,9 @@ html.js .block-superfish div.contextual-links-wrapper {
   position: relative;
 }
 
-.sf-menu a,
+.sf-menu a:link,
 .sf-menu a:visited  {
-
+  text-decoration: none;
 }
 .sf-menu a.sf-with-ul, .sf-menu span.sf-with-ul {
   padding-right: 2.25em;
@@ -61,8 +61,7 @@ html.js .block-superfish div.contextual-links-wrapper {
 .sf-menu a:focus,
 .sf-menu a:hover,
 .sf-menu a:active {
-  outline: 0;
-  background: #dadada;/* <--------------------------Hover color */
+  outline: 0; /* <--------------------------Hover color */
 }
 .sf-menu ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu ul.sf-megamenu li.sf-megamenu-wrapper ol li {
