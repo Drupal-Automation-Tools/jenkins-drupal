@@ -5,3 +5,12 @@
  */
 
 include_once 'mega_menu.features.inc';
+
+/**
+ * Implements hook_init()
+ */
+function mega_menu_init() {
+  // Overrides the default superfish css.
+  $path = drupal_get_path('module', 'mega_menu');
+  drupal_add_css($path . 'css/default.css', 'file');
+}
