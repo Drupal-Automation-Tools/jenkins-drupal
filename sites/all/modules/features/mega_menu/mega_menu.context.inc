@@ -29,7 +29,7 @@ function mega_menu_context_default_contexts() {
         'superfish-1' => array(
           'module' => 'superfish',
           'delta' => '1',
-          'region' => 'header',
+          'region' => 'header_first',
           'weight' => '-10',
         ),
       ),
