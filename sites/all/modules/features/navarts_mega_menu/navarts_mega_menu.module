@@ -4,16 +4,16 @@
  * Code for the Mega Menu feature.
  */
 
-include_once 'mega_menu.features.inc';
+include_once 'navarts_mega_menu.features.inc';
 
 /**
  * Implements hook_init()
  */
 
 function mega_menu_init() {
-  $path = drupal_get_path('module', 'mega_menu');
+  $path = drupal_get_path('module', 'navarts_mega_menu');
   // Styles the superfish markup to play with Drupal.
-  drupal_add_css($path . '/css/mega_menu.css', 'file');
+  drupal_add_css($path . '/css/menu_style.css', 'file');
   // Responsive Behavior
   drupal_add_css($path . '/css/responsive.css', 'file');
   drupal_add_js($path . '/js/responsive.js', 'file');

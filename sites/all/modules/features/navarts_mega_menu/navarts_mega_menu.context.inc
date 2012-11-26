@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * mega_menu.context.inc
+ * navarts_mega_menu.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function mega_menu_context_default_contexts() {
+function navarts_mega_menu_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();
@@ -29,7 +29,7 @@ function mega_menu_context_default_contexts() {
         'superfish-1' => array(
           'module' => 'superfish',
           'delta' => '1',
-          'region' => 'header_first',
+          'region' => 'header',
           'weight' => '-10',
         ),
       ),
