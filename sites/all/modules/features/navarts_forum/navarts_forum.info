@@ -1,0 +1,12 @@
+name = Navarts Forum
+core = 7.x
+package = NavArts Features
+dependencies[] = advanced_forum
+dependencies[] = features
+dependencies[] = forum
+dependencies[] = taxonomy
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[field][] = node-forum-body
+features[field][] = node-forum-taxonomy_forums
+features[taxonomy][] = forums

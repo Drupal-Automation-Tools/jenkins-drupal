@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Navarts Forum feature.
+ */
+
+include_once 'navarts_forum.features.inc';
