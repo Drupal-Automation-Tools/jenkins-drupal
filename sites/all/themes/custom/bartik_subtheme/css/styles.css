@@ -1,0 +1,13 @@
+/* The following two blocks allow bartik to display megamenu properly */
+.region-header {
+  border: none;
+  margin: 0;
+  float: none;
+}
+.region-header .block {
+  float: none;
+}
+/* Fixes an issue with navbar module display on mobile */
+#navbar ul {
+  min-width: 90px;
+}
