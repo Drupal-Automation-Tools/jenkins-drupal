@@ -1,6 +1,7 @@
 name = NavArts Faqs
 core = 7.x
 package = NavArts Features
+php = 5.2.4
 dependencies[] = faq
 dependencies[] = features
 dependencies[] = strongarm
