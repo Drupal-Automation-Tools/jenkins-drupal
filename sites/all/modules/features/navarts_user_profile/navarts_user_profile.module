@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NavArts User Profile feature.
+ */
+
+include_once 'navarts_user_profile.features.inc';
