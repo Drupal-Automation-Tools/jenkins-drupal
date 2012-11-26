@@ -16,7 +16,11 @@
     -o-border-radius: 5px;
     border-radius: 5px;
     background-color: #fff;
-    margin-bottom: 5px;
+    clear: both;
+  }
+  .sf-menu li{
+    background: #fff;
+    margin: 5px 0;
   }
   .sf-menu > li.menuparent {
     background: #fff url(images/arrow_right.png) no-repeat right -5px;
@@ -33,6 +37,22 @@
     position: relative;
     top: 0;
     display: none;
+  }
+  .sf-menu li.sf-depth-1 ul.sf-megamenu {
+    width: auto;
+  }
+  .sf-menu ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
+
+  }
+  .sf-menu ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
+    float: none;
+    width: 50%;
+  }
+  .sf-menu li li li li{
+    display: none;
+  }
+  .sf-menu li li li.sf-megamenu-column li{
+    display: list-item;
   }
 }
 
