@@ -2,6 +2,14 @@
 .sf-menu a, .sf-menu span{
   color: #000 !important; /* <--------    Link color for links and unlinked items */
 }
+/* Headings for dropdowns */
+.sf-megamenu .nolink{
+  font-weight: bold;
+}
+
+.sf-megamenu .sf-depth-1{
+  font-weight: normal;
+}
 /* To hide contextual links - uncomment this
 html.js .block-superfish div.contextual-links-wrapper {
   display: none;
