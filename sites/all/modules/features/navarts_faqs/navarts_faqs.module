@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NavArts Faqs feature.
+ */
+
+include_once 'navarts_faqs.features.inc';
