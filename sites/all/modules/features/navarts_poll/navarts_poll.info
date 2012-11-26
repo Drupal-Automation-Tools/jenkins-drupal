@@ -1,0 +1,8 @@
+name = NavArts Poll
+core = 7.x
+package = NavArts Features
+dependencies[] = ajax_poll
+dependencies[] = features
+dependencies[] = poll
+features[features_api][] = api:1
+features[field][] = comment-comment_node_poll-comment_body

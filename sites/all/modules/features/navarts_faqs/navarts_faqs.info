@@ -1,0 +1,13 @@
+name = NavArts Faqs
+core = 7.x
+package = NavArts Features
+php = 5.2.4
+dependencies[] = faq
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = views
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[field][] = node-faq-body
+features[variable][] = node_type_faq
