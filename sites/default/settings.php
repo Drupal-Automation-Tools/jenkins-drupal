@@ -190,9 +190,9 @@
  * @code
  *   $databases['default']['default'] = array(
  *     'driver' => 'mysql',
- *     'database' => 'databasename',
- *     'username' => 'username',
- *     'password' => 'password',
+ *     'database' => 'drupaldemo',
+ *     'username' => 'drupalman',
+ *     'password' => 'drupaleon',
  *     'host' => 'localhost',
  *     'prefix' => '',
  *   );
@@ -211,6 +211,15 @@
  * @endcode
  */
 $databases = array();
+
+$databases['default']['default'] = array(
+  'driver' => 'mysql',
+  'database' => 'drupaldemo',
+  'username' => 'drupalman',
+  'password' => 'drupaleon',
+  'host' => 'localhost',
+  'prefix' => '',
+);
 
 /**
  * Access control for update.php script.
