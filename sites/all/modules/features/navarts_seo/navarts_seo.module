@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NavArts SEO feature.
+ */
+
+include_once 'navarts_seo.features.inc';

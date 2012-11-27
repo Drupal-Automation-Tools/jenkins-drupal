@@ -1,0 +1,12 @@
+name = NavArts SEO
+core = 7.x
+package = NavArts Features
+dependencies[] = globalredirect
+dependencies[] = metatag
+dependencies[] = redirect
+dependencies[] = strongarm
+dependencies[] = xmlsitemap
+dependencies[] = xmlsitemap_node
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = metatag_schema_installed
