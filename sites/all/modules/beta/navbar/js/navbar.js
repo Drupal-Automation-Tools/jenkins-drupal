@@ -153,7 +153,7 @@ $.extend(TraySlider.prototype, {
    */
   displace: function (event) {
     this.$tray.css({
-      'top': '46px'
+      'top': this.computeOffsetTop() + 'px'
     });
   },
   /**

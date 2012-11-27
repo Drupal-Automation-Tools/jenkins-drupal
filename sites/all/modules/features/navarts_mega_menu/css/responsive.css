@@ -23,10 +23,10 @@
     margin: 5px 0;
   }
   .sf-menu > li.menuparent {
-    background: #fff url(images/arrow_right.png) no-repeat right -5px;
+    background: #fff url(images/arrow_right.png) no-repeat right 50%;
   }
   .sf-menu > li.sfHover{
-    background: #fff url(images/arrow_down.png) no-repeat right -5px;
+    background: #fff url(images/arrow_down.png) no-repeat right 50%;
   }
   /* Expand width to 100% of the mobile screen */
   ul.sf-menu{
