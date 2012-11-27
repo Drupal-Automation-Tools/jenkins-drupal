@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NavArts Config feature.
+ */
+
+include_once 'navarts_config.features.inc';
