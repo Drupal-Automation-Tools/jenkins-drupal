@@ -39,6 +39,6 @@ $options['structure-tables'] = array(
  * Set command-specific defaults for different drush commands.
  */
 // Default module downloads into the Install Profile.
-$command_specific['dl'] = array('destination' => 'profiles/drupaldemo/modules/contrib');
+$command_specific['dl'] = array('destination' => 'sites/all/modules/contrib');
 // Destination for SQL-DUMP commands of local environments
 $options['result-file'] = 'sites/all/database/drupaldemo.sql';
