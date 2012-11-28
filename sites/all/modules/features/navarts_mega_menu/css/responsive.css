@@ -54,6 +54,9 @@
   .sf-menu li li li.sf-megamenu-column li{
     display: list-item;
   }
+  #main-menu {
+    position: relative !important;
+  }
 }
 
 /* Smartphones (landscape) ----------- */
