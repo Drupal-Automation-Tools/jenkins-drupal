@@ -91,6 +91,26 @@ function navarts_events_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'fullcalendar_options';
+  $strongarm->value = array(
+    'firstHour' => TRUE,
+    'minTime' => TRUE,
+    'maxTime' => TRUE,
+    'slotMinutes' => TRUE,
+    'defaultEventMinutes' => TRUE,
+    'allDaySlot' => TRUE,
+    'weekends' => TRUE,
+    'lazyFetching' => TRUE,
+    'disableDragging' => TRUE,
+    'disableResizing' => TRUE,
+    'dragRevertDuration' => TRUE,
+    'dayClick' => TRUE,
+  );
+  $export['fullcalendar_options'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_event';
   $strongarm->value = array();
   $export['menu_options_event'] = $strongarm;
