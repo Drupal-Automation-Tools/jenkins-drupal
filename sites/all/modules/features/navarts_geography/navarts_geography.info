@@ -1,7 +1,7 @@
-name = navarts_geography
+name = NavArts Geography
 description = Provides functionality for locations and mapping
 core = 7.x
-package = Features
+package = NavArts Features
 php = 5.2.4
 version = 7.x-1.0
 project = navarts_geography
