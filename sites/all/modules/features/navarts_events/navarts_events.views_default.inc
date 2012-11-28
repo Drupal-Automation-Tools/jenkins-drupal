@@ -12,8 +12,8 @@ function navarts_events_views_default_views() {
 
   $view = new view();
   $view->name = 'navarts_events';
-  $view->description = '';
-  $view->tag = 'default';
+  $view->description = 'Creates Event displays and Listings';
+  $view->tag = 'Events';
   $view->base_table = 'node';
   $view->human_name = 'NavArts Events';
   $view->core = 7;
@@ -64,10 +64,46 @@ function navarts_events_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: Calendar Page */
+  $handler = $view->new_display('page', 'Calendar Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'navarts-events';
+
+  /* Display: Mini Calendar */
+  $handler = $view->new_display('block', 'Mini Calendar', 'mini_calendar');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'NavArts Events (mini-block)';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'fullcalendar';
+  $handler->display->display_options['style_options']['weekMode'] = 'liquid';
+  $handler->display->display_options['style_options']['left'] = 'title';
+  $handler->display->display_options['style_options']['center'] = '';
+  $handler->display->display_options['style_options']['right'] = 'prev,next';
+  $handler->display->display_options['style_options']['timeformat'] = 'h:mmt dS{ - h:mmt dS}';
+  $handler->display->display_options['style_options']['advanced'] = TRUE;
+  $handler->display->display_options['style_options']['theme'] = FALSE;
+  $handler->display->display_options['style_options']['sameWindow'] = TRUE;
+  $handler->display->display_options['style_options']['editable'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
   $export['navarts_events'] = $view;
 
   return $export;

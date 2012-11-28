@@ -5,3 +5,9 @@
  */
 
 include_once 'navarts_events.features.inc';
+
+function navarts_events_init() {
+  $path = drupal_get_path('module', 'navarts_events');
+  // Adds a mini calendar css theme.
+  drupal_add_css($path . '/css/mini_calendar.css', 'file');
+}
