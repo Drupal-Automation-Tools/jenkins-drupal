@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Code for the navarts_geography feature.
+ */
+
+include_once 'navarts_geography.features.inc';
+
+
+/**
+ * 
+ */
+//locator pane with Map Panel 
+//navarts_geography_locations_block() {}
+/*
+ * 
+ * openlayers_render_map('geofield_widget_map_locations');
+ * //$out = openlayers_render_map('geofield_widget_map_locations');
+
+ */
