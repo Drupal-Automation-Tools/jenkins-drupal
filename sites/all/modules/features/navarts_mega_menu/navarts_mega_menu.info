@@ -3,6 +3,7 @@ description = Provides a responsive, generic, themeable base for a megamenu
 core = 7.x
 package = NavArts Features
 php = 5.2.4
+version = 7.x-0.4
 dependencies[] = context
 dependencies[] = context_ui
 dependencies[] = ctools

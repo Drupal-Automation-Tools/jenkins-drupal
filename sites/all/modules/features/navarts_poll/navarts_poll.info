@@ -1,6 +1,7 @@
 name = NavArts Poll
 core = 7.x
 package = NavArts Features
+version = 7.x-0.1
 dependencies[] = ajax_poll
 dependencies[] = features
 dependencies[] = poll
