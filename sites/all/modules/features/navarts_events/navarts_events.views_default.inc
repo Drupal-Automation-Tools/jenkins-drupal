@@ -67,6 +67,14 @@ function navarts_events_views_default_views() {
   /* Display: Calendar Page */
   $handler = $view->new_display('page', 'Calendar Page', 'navarts_calendar_page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'fullcalendar';
+  $handler->display->display_options['style_options']['weekMode'] = 'liquid';
+  $handler->display->display_options['style_options']['timeformat'] = 'h:mmt dS{ - h:mmt dS}';
+  $handler->display->display_options['style_options']['theme'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'navarts-events';
 
   /* Display: Mini Calendar */

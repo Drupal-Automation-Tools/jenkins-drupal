@@ -29,13 +29,13 @@ function navarts_events_context_default_contexts() {
         'views-navarts_events-mini_calendar' => array(
           'module' => 'views',
           'delta' => 'navarts_events-mini_calendar',
-          'region' => 'sidebar_first',
+          'region' => 'sidebar_second',
           'weight' => '0',
         ),
         'views-2d7fdb10657b08cce0bf2b35f89af330' => array(
           'module' => 'views',
           'delta' => '2d7fdb10657b08cce0bf2b35f89af330',
-          'region' => 'sidebar_first',
+          'region' => 'sidebar_second',
           'weight' => '1',
         ),
       ),
