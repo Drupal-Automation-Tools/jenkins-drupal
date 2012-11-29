@@ -56,14 +56,14 @@ function navarts_forum_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'advanced_forum_stats_replies';
-  $strongarm->value = '';
+  $strongarm->value = '31';
   $export['advanced_forum_stats_replies'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'advanced_forum_style';
-  $strongarm->value = 'naked';
+  $strongarm->value = 'silver_bells';
   $export['advanced_forum_style'] = $strongarm;
 
   $strongarm = new stdClass();
