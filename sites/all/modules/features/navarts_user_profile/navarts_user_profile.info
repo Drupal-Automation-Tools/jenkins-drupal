@@ -10,7 +10,6 @@ dependencies[] = phone
 dependencies[] = profile2
 dependencies[] = profile2_page
 features[features_api][] = api:1
-features[field][] = profile2-user_profile-field_email
 features[field][] = profile2-user_profile-field_first_name
 features[field][] = profile2-user_profile-field_last_name
 features[field][] = profile2-user_profile-field_phone

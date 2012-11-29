@@ -3,6 +3,7 @@ description = The magical core of the Panopoly framework.
 core = 7.x
 package = Panopoly
 php = 5.2.4
+version = 7.x-1.0-rc3
 project = panopoly_core
 dependencies[] = apps
 dependencies[] = ctools
@@ -36,9 +37,7 @@ dependencies[] = views
 dependencies[] = views_autocomplete_filters
 dependencies[] = views_content
 dependencies[] = views_ui
-stylesheets[all][] = css/panopoly-fonts.css
-stylesheets[all][] = css/panopoly-modal.css
-stylesheets[all][] = css/panopoly-dropbutton.css
+datestamp = 1352691202
 features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
@@ -74,10 +73,6 @@ features[variable][] = page_manager_term_view_disabled
 features[variable][] = panelizer_taxonomy_term:panopoly_categories_allowed_layouts_default
 features[variable][] = panelizer_taxonomy_term:panopoly_categories_allowed_types_default
 features[views_view][] = panopoly_taxonomy
-
-; Information added by drupal.org packaging script on 2012-11-12
-version = "7.x-1.0-rc3"
-core = "7.x"
-project = "panopoly_core"
-datestamp = "1352691202"
-
+stylesheets[all][] = css/panopoly-fonts.css
+stylesheets[all][] = css/panopoly-modal.css
+stylesheets[all][] = css/panopoly-dropbutton.css

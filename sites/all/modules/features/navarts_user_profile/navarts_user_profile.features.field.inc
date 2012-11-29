@@ -10,57 +10,6 @@
 function navarts_user_profile_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'profile2-user_profile-field_email'.
-  $fields['profile2-user_profile-field_email'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_email',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'email',
-      'settings' => array(
-        'profile2_private' => 0,
-      ),
-      'translatable' => '0',
-      'type' => 'email',
-    ),
-    'field_instance' => array(
-      'bundle' => 'user_profile',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'email',
-          'settings' => array(),
-          'type' => 'email_default',
-          'weight' => '4',
-        ),
-      ),
-      'entity_type' => 'profile2',
-      'field_name' => 'field_email',
-      'label' => 'Email',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'email',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'email_textfield',
-        'weight' => '4',
-      ),
-    ),
-  );
-
   // Exported field: 'profile2-user_profile-field_first_name'.
   $fields['profile2-user_profile-field_first_name'] = array(
     'field_config' => array(
@@ -314,14 +263,13 @@ function navarts_user_profile_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => 0,
+        'weight' => '0',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Email');
   t('First Name');
   t('Last Name');
   t('Phone');
