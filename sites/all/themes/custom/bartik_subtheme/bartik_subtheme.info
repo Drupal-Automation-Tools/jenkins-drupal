@@ -6,6 +6,7 @@ base theme = responsive_bartik
 
 stylesheets[all][] = css/styles.css
 stylesheets[all][] = css/colors.css
+stylesheets[all][] = css/Aristo.css
 
 regions[header] = Header
 regions[help] = Help
