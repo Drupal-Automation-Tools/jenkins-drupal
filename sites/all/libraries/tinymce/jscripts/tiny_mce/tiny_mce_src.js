@@ -6,9 +6,9 @@
 	var tinymce = {
 		majorVersion : '3',
 
-		minorVersion : '5.8',
+		minorVersion : '5.7',
 
-		releaseDate : '2012-11-20',
+		releaseDate : '2012-09-20',
 
 		_init : function() {
 			var t = this, d = document, na = navigator, ua = na.userAgent, i, nl, n, base, p, v;
@@ -1098,7 +1098,7 @@ tinymce.create('static tinymce.util.XHR', {
 
 tinymce.util.Quirks = function(editor) {
 	var VK = tinymce.VK, BACKSPACE = VK.BACKSPACE, DELETE = VK.DELETE, dom = editor.dom, selection = editor.selection,
-		settings = editor.settings, parser = editor.parser, serializer = editor.serializer, each = tinymce.each;
+		settings = editor.settings, parser = editor.parser, serializer = editor.serializer;
 
 	function setEditorCommandState(cmd, state) {
 		try {
@@ -1128,48 +1128,40 @@ tinymce.util.Quirks = function(editor) {
 			blockElm = dom.getParent(rng.startContainer, dom.isBlock);
 
 			// On delete clone the root span of the next block element
-			if (isDelete) {
+			if (isDelete)
 				blockElm = dom.getNext(blockElm, dom.isBlock);
-			}
 
 			// Locate root span element and clone it since it would otherwise get merged by the "apple-style-span" on delete/backspace
 			if (blockElm) {
 				node = blockElm.firstChild;
 
 				// Ignore empty text nodes
-				while (node && node.nodeType == 3 && node.nodeValue.length === 0) {
+				while (node && node.nodeType == 3 && node.nodeValue.length === 0)
 					node = node.nextSibling;
-				}
 
 				if (node && node.nodeName === 'SPAN') {
 					clonedSpan = node.cloneNode(false);
 				}
 			}
 
-			each(dom.select('span', blockElm), function(span) {
-				span.setAttribute('data-mce-mark', '1');
-			});
-
 			// Do the backspace/delete action
 			editor.getDoc().execCommand(isDelete ? 'ForwardDelete' : 'Delete', false, null);
 
 			// Find all odd apple-style-spans
 			blockElm = dom.getParent(rng.startContainer, dom.isBlock);
-			each(dom.select('span', blockElm), function(span) {
+			tinymce.each(dom.select('span.Apple-style-span,font.Apple-style-span', blockElm), function(span) {
 				var bm = selection.getBookmark();
 
 				if (clonedSpan) {
 					dom.replace(clonedSpan.cloneNode(false), span, true);
-				} else if (!span.getAttribute('data-mce-mark')) {
-					dom.remove(span, true);
 				} else {
-					span.removeAttribute('data-mce-mark');
+					dom.remove(span, true);
 				}
 
 				// Restore the selection
 				selection.moveToBookmark(bm);
 			});
-		}
+		};
 
 		editor.onKeyDown.add(function(editor, e) {
 			var isDelete;
@@ -1323,7 +1315,7 @@ tinymce.util.Quirks = function(editor) {
 				if (target !== editor.getBody()) {
 					dom.setAttrib(target, "style", null);
 
-					each(template, function(attr) {
+					tinymce.each(template, function(attr) {
 						target.setAttributeNode(attr.cloneNode(true));
 					});
 				}
@@ -1573,7 +1565,7 @@ tinymce.util.Quirks = function(editor) {
 
 	function addBrAfterLastLinks() {
 		function fixLinks(editor, o) {
-			each(dom.select('a'), function(node) {
+			tinymce.each(dom.select('a'), function(node) {
 				var parentNode = node.parentNode, root = dom.getRoot();
 
 				if (parentNode.lastChild === node) {
@@ -1641,7 +1633,7 @@ tinymce.util.Quirks = function(editor) {
 		// IE10+
 		if (getDocumentMode() >= 10) {
 			emptyBlocksCSS = '';
-			each('p div h1 h2 h3 h4 h5 h6'.split(' '), function(name, i) {
+			tinymce.each('p div h1 h2 h3 h4 h5 h6'.split(' '), function(name, i) {
 				emptyBlocksCSS += (i > 0 ? ',' : '') + name + ':empty';
 			});
 
@@ -1758,7 +1750,7 @@ tinymce.util.Quirks = function(editor) {
 				width = height = 0;
 			}
 
-			each(resizeHandles, function(handle, name) {
+			tinymce.each(resizeHandles, function(handle, name) {
 				var handleElm;
 
 				// Get existing or render resize handle
@@ -1855,7 +1847,7 @@ tinymce.util.Quirks = function(editor) {
 			var controlElm = dom.getParent(selection.getNode(), 'table,img');
 
 			// Remove data-mce-selected from all elements since they might have been copied using Ctrl+c/v
-			each(dom.select('img[data-mce-selected]'), function(img) {
+			tinymce.each(dom.select('img[data-mce-selected]'), function(img) {
 				img.removeAttribute('data-mce-selected');
 			});
 
@@ -3154,7 +3146,7 @@ tinymce.html.Styles = function(settings, schema) {
 				value = name in fillAttrsMap ? name : decode(value || val2 || val3 || ''); // Handle boolean attribute than value attribute
 
 				// Validate name and value
-				if (validate && !isInternalElement && name.indexOf('data-') !== 0) {
+				if (validate && !isInternalElement && name.indexOf('data-mce-') !== 0) {
 					attrRule = validAttributesMap[name];
 
 					// Find rule by pattern matching
@@ -5217,11 +5209,6 @@ tinymce.dom.TreeWalker = function(start_node, root_node) {
 			blockElementsMap = s.schema ? s.schema.getBlockElements() : {};
 
 			t.isBlock = function(node) {
-				// Fix for #5446
-				if (!node) {
-					return false;
-				}
-
 				// This function is called in module pattern style since it might be executed with the wrong this scope
 				var type = node.nodeType;
 
@@ -10331,16 +10318,6 @@ window.tinymce.dom.Sizzle = Sizzle;
 			return self;
 		},
 
-		scrollIntoView: function(elm) {
-			var y, viewPort, self = this, dom = self.dom;
-
-			viewPort = dom.getViewPort(self.editor.getWin());
-			y = dom.getPos(elm).y;
-			if (y < viewPort.y || y + 25 > viewPort.y + viewPort.h) {
-				self.editor.getWin().scrollTo(0, y < viewPort.y ? y : y - viewPort.h + 25);
-			}
-		},
-
 		destroy : function(manual) {
 			var self = this;
 
@@ -13690,12 +13667,10 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 				t.iframeHTML += '<base href="' + t.documentBaseURI.getURI() + '" />';
 
 			// IE8 doesn't support carets behind images setting ie7_compat would force IE8+ to run in IE7 compat mode.
-			if (tinymce.isIE8) {
-				if (s.ie7_compat)
-					t.iframeHTML += '<meta http-equiv="X-UA-Compatible" content="IE=7" />';
-				else
-					t.iframeHTML += '<meta http-equiv="X-UA-Compatible" content="IE=edge" />';
-			}
+			if (s.ie7_compat)
+				t.iframeHTML += '<meta http-equiv="X-UA-Compatible" content="IE=7" />';
+			else
+				t.iframeHTML += '<meta http-equiv="X-UA-Compatible" content="IE=edge" />';
 
 			t.iframeHTML += '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 
@@ -14325,7 +14300,9 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 			self.save();
 
 			// defer the call to hide to prevent an IE9 crash #4921
-			DOM.hide(self.getContainer());
+			setTimeout(function() {
+				DOM.hide(self.getContainer());
+			}, 1);
 			DOM.setStyle(self.id, 'display', self.orgDisplay);
 		},
 
@@ -14604,19 +14581,11 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 		},
 
 		remove : function() {
-			var self = this, elm = self.getContainer(), doc = self.getDoc();
+			var self = this, elm = self.getContainer();
 
 			if (!self.removed) {
 				self.removed = 1; // Cancels post remove event execution
-
-				// Fixed bug where IE has a blinking cursor left from the editor
-				if (isIE && doc)
-					doc.execCommand('SelectAll');
-
-				// We must save before we hide so Safari doesn't crash
-				self.save();
-
-				DOM.setStyle(self.id, 'display', self.orgDisplay);
+				self.hide();
 
 				// Don't clear the window or document if content editable
 				// is enabled since other instances might still be present
@@ -15609,7 +15578,7 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 		// Add undo level on save contents, drag end and blur/focusout
 		editor.onSaveContent.add(addNonTypingUndoLevel);
 		editor.dom.bind(editor.dom.getRoot(), 'dragend', addNonTypingUndoLevel);
-		editor.dom.bind(editor.getBody(), 'focusout', function(e) {
+		editor.dom.bind(editor.getDoc(), tinymce.isGecko ? 'blur' : 'focusout', function(e) {
 			if (!editor.removed && self.typing) {
 				addNonTypingUndoLevel();
 			}
@@ -16971,11 +16940,6 @@ tinymce.ForceBlocks = function(editor) {
 			// Merges the styles for each node
 			function process(node) {
 				var children, i, l, localContentEditable, lastContentEditable, hasContentEditableState;
-
-				// Skip on text nodes as they have neither format to remove nor children
-				if (node.nodeType === 3) {
-					return;
-				}
 
 				// Node has a contentEditable value
 				if (node.nodeType === 1 && getContentEditable(node)) {
@@ -18791,7 +18755,7 @@ tinymce.onAddEditor.add(function(tinymce, ed) {
 			
 			// Inserts a BR element if the forced_root_block option is set to false or empty string
 			function insertBr() {
-				var brElm, extraBr, marker;
+				var brElm, extraBr;
 
 				if (container && container.nodeType == 3 && offset >= container.nodeValue.length) {
 					// Insert extra BR element at the end block elements
@@ -18811,12 +18775,6 @@ tinymce.onAddEditor.add(function(tinymce, ed) {
 				if (tinymce.isIE && parentBlockName == 'PRE' && (!documentMode || documentMode < 8)) {
 					brElm.parentNode.insertBefore(dom.doc.createTextNode('\r'), brElm);
 				}
-
-				// Insert temp marker and scroll to that
-				marker = dom.create('span', {}, '&nbsp;');
-				brElm.parentNode.insertBefore(marker, brElm);
-				selection.scrollIntoView(marker);
-				dom.remove(marker);
 
 				if (!extraBr) {
 					rng.setStartAfter(brElm);
