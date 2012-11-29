@@ -18,3 +18,240 @@ include_once 'navarts_geography.features.inc';
  * //$out = openlayers_render_map('geofield_widget_map_locations');
 
  */
+
+/**
+ * Create Nodes for Demo content: 
+ */
+function navarts_geography_create_demo_locations(){
+  $locations = navarts_geography_demo_locations();
+  foreach($locations as $location) {
+    $location = (object) $location;
+    $check_for_location = db_query("SELECT 1 FROM {node} WHERE type = :type AND title = :title", array(':type'=>$location->type, ':title'=>$location->title))->fetchField();
+    if (!$check_for_location){
+      node_save($location);
+      watchdog('navarts_geography', "Location created: {$location->title}");
+    }
+    
+  }
+}
+
+/**
+ * Create demo content array for locations finder
+ * @return \stdClass 
+ */
+function navarts_geography_demo_locations(){
+  $location_nodes = array();
+  
+  $location_node = new stdClass();
+  $location_node->uid = 1;
+  $location_node->title = 'Boston';
+  $location_node->status = 1;
+  $location_node->comment = 2;
+  $location_node->promote = 1;
+  $location_node->sticky = 0;
+  $location_node->type = 'ol_locator_location';
+  $location_node->language = 'und';
+  $location_node->body['und'][0]['value'] = 'Boston';
+  $location_node->body['und'][0]['summary'] = '';
+  $location_node->body['und'][0]['format'] = 'filtered_html';
+  $location_node->body['und'][0]['safe_value'] = '<p>Boston</p>
+  ';
+  $location_node->body['und'][0]['safe_summary'] = '';
+  $location_node->field_ol_locator_address['und'][0]['country'] = 'US';
+  $location_node->field_ol_locator_address['und'][0]['administrative_area'] = 'MA';
+  $location_node->field_ol_locator_address['und'][0]['sub_administrative_area'] = '';
+  $location_node->field_ol_locator_address['und'][0]['locality'] = 'Boston';
+  $location_node->field_ol_locator_address['und'][0]['dependent_locality'] = '';
+  $location_node->field_ol_locator_address['und'][0]['postal_code'] = '02210';
+  $location_node->field_ol_locator_address['und'][0]['thoroughfare'] = '470 Atlantic Avenue';
+  $location_node->field_ol_locator_address['und'][0]['premise'] = '4th Floor';
+  $location_node->field_ol_locator_address['und'][0]['sub_premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['organisation_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['name_line'] = '';
+  $location_node->field_ol_locator_address['und'][0]['first_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['last_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['data'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['wkt'] = 'POINT (-71.0515764 42.3544506)';
+  $location_node->field_ol_locator_geofield['und'][0]['geo_type'] = 'point';
+  $location_node->field_ol_locator_geofield['und'][0]['lat'] = 42.3545;
+  $location_node->field_ol_locator_geofield['und'][0]['lon'] = -71.0516;
+  $location_node->field_ol_locator_geofield['und'][0]['left'] = -71.0516;
+  $location_node->field_ol_locator_geofield['und'][0]['top'] = 42.3545;
+  $location_node->field_ol_locator_geofield['und'][0]['right'] = -71.0516;
+  $location_node->field_ol_locator_geofield['und'][0]['bottom'] = 42.3545;
+  $location_node->field_ol_locator_geofield['und'][0]['srid'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['accuracy'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['source'] = '';
+  $location_nodes[] = $location_node;
+
+  $location_node = new stdClass();
+  $location_node->uid = 1;
+  $location_node->title = 'New York';
+  $location_node->status = 1;
+  $location_node->comment = 2;
+  $location_node->promote = 1;
+  $location_node->sticky = 0;
+  $location_node->type = 'ol_locator_location';
+  $location_node->language = 'und';
+  $location_node->body['und'][0]['value'] = 'New York';
+  $location_node->body['und'][0]['summary'] = '';
+  $location_node->body['und'][0]['format'] = 'filtered_html';
+  $location_node->body['und'][0]['safe_value'] = '<p>New York</p>
+  ';
+  $location_node->body['und'][0]['safe_summary'] = '';
+  $location_node->field_ol_locator_address['und'][0]['country'] = 'US';
+  $location_node->field_ol_locator_address['und'][0]['administrative_area'] = 'NY';
+  $location_node->field_ol_locator_address['und'][0]['sub_administrative_area'] = '';
+  $location_node->field_ol_locator_address['und'][0]['locality'] = 'New York';
+  $location_node->field_ol_locator_address['und'][0]['dependent_locality'] = '';
+  $location_node->field_ol_locator_address['und'][0]['postal_code'] = '10011';
+  $location_node->field_ol_locator_address['und'][0]['thoroughfare'] = '255 West 23rd Street ';
+  $location_node->field_ol_locator_address['und'][0]['premise'] = 'Suite 5A West ';
+  $location_node->field_ol_locator_address['und'][0]['sub_premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['organisation_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['name_line'] = '';
+  $location_node->field_ol_locator_address['und'][0]['first_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['last_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['data'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['wkt'] = 'POINT (-73.997184 40.745212)';
+  $location_node->field_ol_locator_geofield['und'][0]['geo_type'] = 'point';
+  $location_node->field_ol_locator_geofield['und'][0]['lat'] = 40.7452;
+  $location_node->field_ol_locator_geofield['und'][0]['lon'] = -73.9972;
+  $location_node->field_ol_locator_geofield['und'][0]['left'] = -73.9972;
+  $location_node->field_ol_locator_geofield['und'][0]['top'] = 40.7452;
+  $location_node->field_ol_locator_geofield['und'][0]['right'] = -73.9972;
+  $location_node->field_ol_locator_geofield['und'][0]['bottom'] = 40.7452;
+  $location_node->field_ol_locator_geofield['und'][0]['srid'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['accuracy'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['source'] = '';
+  $location_nodes[] = $location_node;
+
+  $location_node = new stdClass();
+  $location_node->uid = 1;
+  $location_node->title = 'Philadelphia';
+  $location_node->status = 1;
+  $location_node->comment = 2;
+  $location_node->promote = 1;
+  $location_node->sticky = 0;
+  $location_node->type = 'ol_locator_location';
+  $location_node->language = 'und';
+  $location_node->body['und'][0]['value'] = 'Philadelphia';
+  $location_node->body['und'][0]['summary'] = '';
+  $location_node->body['und'][0]['format'] = 'filtered_html';
+  $location_node->body['und'][0]['safe_value'] = '<p>Philadelphia</p>
+  ';
+  $location_node->body['und'][0]['safe_summary'] = '';
+  $location_node->field_ol_locator_address['und'][0]['country'] = 'US';
+  $location_node->field_ol_locator_address['und'][0]['administrative_area'] = 'PA';
+  $location_node->field_ol_locator_address['und'][0]['sub_administrative_area'] = '';
+  $location_node->field_ol_locator_address['und'][0]['locality'] = 'Philadelphia';
+  $location_node->field_ol_locator_address['und'][0]['dependent_locality'] = '';
+  $location_node->field_ol_locator_address['und'][0]['postal_code'] = '19106';
+  $location_node->field_ol_locator_address['und'][0]['thoroughfare'] = '125 N. 3rd Street';
+  $location_node->field_ol_locator_address['und'][0]['premise'] = '4th Floor';
+  $location_node->field_ol_locator_address['und'][0]['sub_premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['organisation_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['name_line'] = '';
+  $location_node->field_ol_locator_address['und'][0]['first_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['last_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['data'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['wkt'] = 'POINT (-75.1450432 39.9530352)';
+  $location_node->field_ol_locator_geofield['und'][0]['geo_type'] = 'point';
+  $location_node->field_ol_locator_geofield['und'][0]['lat'] = 39.953;
+  $location_node->field_ol_locator_geofield['und'][0]['lon'] = -75.145;
+  $location_node->field_ol_locator_geofield['und'][0]['left'] = -75.145;
+  $location_node->field_ol_locator_geofield['und'][0]['top'] = 39.953;
+  $location_node->field_ol_locator_geofield['und'][0]['right'] = -75.145;
+  $location_node->field_ol_locator_geofield['und'][0]['bottom'] = 39.953;
+  $location_node->field_ol_locator_geofield['und'][0]['srid'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['accuracy'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['source'] = '';
+  $location_nodes[] = $location_node;
+
+  $location_node = new stdClass();
+  $location_node->uid = 1;
+  $location_node->title = 'Headquarters';
+  $location_node->status = 1;
+  $location_node->comment = 2;
+  $location_node->promote = 1;
+  $location_node->sticky = 0;
+  $location_node->type = 'ol_locator_location';
+  $location_node->language = 'und';
+  $location_node->body['und'][0]['value'] = 'Navigation Arts Headquarters in McLean, Virginia';
+  $location_node->body['und'][0]['summary'] = '';
+  $location_node->body['und'][0]['format'] = 'filtered_html';
+  $location_node->body['und'][0]['safe_value'] = '<p>Navigation Arts Headquarters in McLean, Virginia</p>
+  ';
+  $location_node->body['und'][0]['safe_summary'] = '';
+  $location_node->field_ol_locator_address['und'][0]['country'] = 'US';
+  $location_node->field_ol_locator_address['und'][0]['administrative_area'] = 'VA';
+  $location_node->field_ol_locator_address['und'][0]['sub_administrative_area'] = '';
+  $location_node->field_ol_locator_address['und'][0]['locality'] = 'McLean';
+  $location_node->field_ol_locator_address['und'][0]['dependent_locality'] = '';
+  $location_node->field_ol_locator_address['und'][0]['postal_code'] = 22102;
+  $location_node->field_ol_locator_address['und'][0]['thoroughfare'] = '7901 Jones Branch Drive ';
+  $location_node->field_ol_locator_address['und'][0]['premise'] = 'Suite 400';
+  $location_node->field_ol_locator_address['und'][0]['sub_premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['organisation_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['name_line'] = '';
+  $location_node->field_ol_locator_address['und'][0]['first_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['last_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['data'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['wkt'] = 'POINT (-77.2190729 38.9260961)';
+  $location_node->field_ol_locator_geofield['und'][0]['geo_type'] = 'point';
+  $location_node->field_ol_locator_geofield['und'][0]['lat'] = 38.9261;
+  $location_node->field_ol_locator_geofield['und'][0]['lon'] = -77.2191;
+  $location_node->field_ol_locator_geofield['und'][0]['left'] = -77.2191;
+  $location_node->field_ol_locator_geofield['und'][0]['top'] = 38.9261;
+  $location_node->field_ol_locator_geofield['und'][0]['right'] = -77.2191;
+  $location_node->field_ol_locator_geofield['und'][0]['bottom'] = 38.9261;
+  $location_node->field_ol_locator_geofield['und'][0]['srid'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['accuracy'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['source'] = '';
+  $location_nodes[] = $location_node;
+
+  $location_node = new stdClass();
+  $location_node->uid = 1;
+  $location_node->title = 'MIT';
+  $location_node->status = 1;
+  $location_node->comment = 2;
+  $location_node->promote = 0;
+  $location_node->sticky = 0;
+  $location_node->type = 'ol_locator_location';
+  $location_node->language = 'und';
+  $location_node->body['und'][0]['value'] = 'Massachusetts Institute of Technology';
+  $location_node->body['und'][0]['summary'] = '';
+  $location_node->body['und'][0]['format'] = 'filtered_html';
+  $location_node->body['und'][0]['safe_value'] = '<p>Massachusetts Institute of Technology</p>
+  ';
+  $location_node->body['und'][0]['safe_summary'] = '';
+  $location_node->field_ol_locator_address['und'][0]['country'] = 'US';
+  $location_node->field_ol_locator_address['und'][0]['administrative_area'] = 'MA';
+  $location_node->field_ol_locator_address['und'][0]['sub_administrative_area'] = '';
+  $location_node->field_ol_locator_address['und'][0]['locality'] = 'Cambridge';
+  $location_node->field_ol_locator_address['und'][0]['dependent_locality'] = '';
+  $location_node->field_ol_locator_address['und'][0]['postal_code'] = '02139';
+  $location_node->field_ol_locator_address['und'][0]['thoroughfare'] = '77 massachusetts ave';
+  $location_node->field_ol_locator_address['und'][0]['premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['sub_premise'] = '';
+  $location_node->field_ol_locator_address['und'][0]['organisation_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['name_line'] = '';
+  $location_node->field_ol_locator_address['und'][0]['first_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['last_name'] = '';
+  $location_node->field_ol_locator_address['und'][0]['data'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['wkt'] = 'POINT (-71.0935563 42.3597579)';
+  $location_node->field_ol_locator_geofield['und'][0]['geo_type'] = 'point';
+  $location_node->field_ol_locator_geofield['und'][0]['lat'] = 42.3598;
+  $location_node->field_ol_locator_geofield['und'][0]['lon'] = -71.0936;
+  $location_node->field_ol_locator_geofield['und'][0]['left'] = -71.0936;
+  $location_node->field_ol_locator_geofield['und'][0]['top'] = 42.3598;
+  $location_node->field_ol_locator_geofield['und'][0]['right'] = -71.0936;
+  $location_node->field_ol_locator_geofield['und'][0]['bottom'] = 42.3598;
+  $location_node->field_ol_locator_geofield['und'][0]['srid'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['accuracy'] = '';
+  $location_node->field_ol_locator_geofield['und'][0]['source'] = '';
+  $location_nodes[] = $location_node;
+  
+  return $location_nodes;
+}
+
