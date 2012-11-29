@@ -255,3 +255,13 @@ function navarts_geography_demo_locations(){
   return $location_nodes;
 }
 
+/**
+ * Fix odd restriction on page items
+ * @param type $view
+ * @param type $query 
+ */
+function navarts_geography_views_query_alter(&$view, &$query) {
+  if ($view->items_per_page == NULL) {
+     $view->set_items_per_page(0);
+  }
+}
