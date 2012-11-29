@@ -29,3 +29,11 @@ h1 {
   font: normal 48px/0.9 "HelveticaNeueW01-77BdCn 692722",sans-serif;
   text-transform: uppercase;
 }
+.region-sidebar-first {
+  background: url(http://www.navigationarts.com/_res/img/bgNavLocal.png) no-repeat right 0;
+  height: 350px;
+}
+.region-sidebar-first .block {
+  background-color: transparent;
+  border: none;
+}
