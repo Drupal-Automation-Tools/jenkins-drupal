@@ -13,7 +13,7 @@ function panopoly_demo_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'panopoly_demo_panel';
   $page->task = 'page';
-  $page->admin_title = 'Homepage Demo';
+  $page->admin_title = 'Panels Demo';
   $page->admin_description = 'This is a demo panel for Panopoly so folks can see the magic';
   $page->path = 'demo';
   $page->access = array(
@@ -22,7 +22,7 @@ function panopoly_demo_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Homepage Demo',
+    'title' => 'Panels Demo',
     'name' => 'main-menu',
     'weight' => '-10',
     'parent' => array(
@@ -65,13 +65,14 @@ function panopoly_demo_default_page_manager_pages() {
       'header' => NULL,
       'contentmain' => NULL,
       'footer' => NULL,
+      'sidebar' => NULL,
     ),
     'sidebar' => array(
       'style' => '-1',
     ),
   );
   $display->cache = array();
-  $display->title = 'Homepage Demo';
+  $display->title = 'Panels Demo';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
