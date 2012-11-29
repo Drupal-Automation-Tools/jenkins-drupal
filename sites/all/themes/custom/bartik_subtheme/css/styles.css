@@ -29,6 +29,7 @@ h1 {
   font: normal 48px/0.9 "HelveticaNeueW01-77BdCn 692722",sans-serif;
   text-transform: uppercase;
 }
+/*Steal sidebar shadow from na.com*/
 .region-sidebar-first {
   background: url(http://www.navigationarts.com/_res/img/bgNavLocal.png) no-repeat right 0;
   height: 350px;
@@ -38,11 +39,20 @@ h1 {
   border: none;
   padding: 15px 20px 15px 0px;
 }
+
 .region-content ul, .region-content ol {
   margin: 1em 0;
   padding: 0 0 0.25em 0;
 }
+
+/*Remove list bullets*/
 .item-list ul li,
 ul.menu li {
   list-style: none;
+}
+
+/*Float the blog images left*/
+.view-navarts-blog .field-type-image{
+  float: left;
+  margin-right: 1em;
 }
