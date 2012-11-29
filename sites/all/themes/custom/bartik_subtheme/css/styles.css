@@ -36,4 +36,12 @@ h1 {
 .region-sidebar-first .block {
   background-color: transparent;
   border: none;
+  padding: 15px 20px 15px 0px;
+}
+.region-content ul, .region-content ol {
+  margin: 1em 0;
+  padding: 0 0 0.25em 0;
+}
+ul.menu li {
+  list-style: none;
 }
