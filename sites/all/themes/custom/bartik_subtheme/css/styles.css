@@ -11,3 +11,21 @@
 #navbar ul {
   min-width: 90px;
 }
+#main-menu {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  #main-menu {
+    position: relative;
+  }
+}
+body, #site-slogan, .ui-widget, .comment-form label {
+  font: normal 14px/1.4 sans-serif;
+}
+h1 {
+  color: #6C193F;
+  font: normal 48px/0.9 "HelveticaNeueW01-77BdCn 692722",sans-serif;
+  text-transform: uppercase;
+}

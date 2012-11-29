@@ -5,8 +5,9 @@ core = 7.x
 dependencies[] = jquery_update
 
 ; Information added by drupal.org packaging script on 2012-10-04
-version = "7.x-1.x-dev"
+version = "7.x-1.0-alpha3"
 core = "7.x"
 project = "navbar"
-datestamp = "1349311070"
+datestamp = "1349337129"
+
 

@@ -1,6 +1,7 @@
 name = NavArts User Profile
 core = 7.x
 package = NavArts Features
+version = 7.x-0.1
 dependencies[] = email
 dependencies[] = features
 dependencies[] = image
