@@ -268,7 +268,7 @@ function navarts_user_profile_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => '1',
+        'default_image' => 0,
         'profile2_private' => 0,
         'uri_scheme' => 'public',
       ),

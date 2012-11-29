@@ -67,11 +67,16 @@ function navarts_events_views_default_views() {
   /* Display: Calendar Page */
   $handler = $view->new_display('page', 'Calendar Page', 'navarts_calendar_page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'fullcalendar';
   $handler->display->display_options['style_options']['weekMode'] = 'liquid';
   $handler->display->display_options['style_options']['timeformat'] = 'h:mmt dS{ - h:mmt dS}';
-  $handler->display->display_options['style_options']['theme'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -90,7 +95,6 @@ function navarts_events_views_default_views() {
   $handler->display->display_options['style_options']['right'] = 'prev,next';
   $handler->display->display_options['style_options']['timeformat'] = 'h:mmt dS{ - h:mmt dS}';
   $handler->display->display_options['style_options']['advanced'] = TRUE;
-  $handler->display->display_options['style_options']['theme'] = FALSE;
   $handler->display->display_options['style_options']['sameWindow'] = TRUE;
   $handler->display->display_options['style_options']['editable'] = TRUE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
