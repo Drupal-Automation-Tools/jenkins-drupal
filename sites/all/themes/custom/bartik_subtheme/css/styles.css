@@ -1,19 +1,19 @@
-body {font: normal 14px/1.4 sans-serif;}
-h1 {
-  color: #6C193F;
-  font: normal 48px/0.9 "HelveticaNeueW01-77BdCn 692722",sans-serif;
-  text-transform: uppercase;
+body {font: normal 14px/1.4 sans-serif}
+h1, .node-teaser h2 a {color: #6C193F}
+h1,h2,h3,h4,h5,h6, #site-name a{
+  font-family: "HelveticaNeueW01-77BdCn 692722",sans-serif;
+  text-transform: uppercase
 }
-.sidebar h2 {font-weight: bold;}
+.sidebar h2 {text-shadow: none}
 .region-header {/* The following two blocks allow bartik to display megamenu properly */
   border: none;
   float: none;
-  margin: 0;
+  margin: 0
 }
 #main-menu {
   bottom: 0;
   position: absolute;
-  right: 0;
+  right: 0
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) { /* Center logo and title on devices */
   #main-menu {position: relative}
@@ -21,7 +21,7 @@ h1 {
     display: block;
     position: relative;
     text-align: center;
-    width: 100%;
+    width: 100%
   }
 }
 .region-sidebar-first { /* Steal sidebar shadow from na.com */
@@ -38,7 +38,7 @@ h1 {
 .region-header .block {float: none}
 .region-content ul, .region-content ol {
   margin: 1em 0;
-  padding: 0 0 0.25em 0;
+  padding: 0 0 0.25em 0
 }
 .block ul li{list-style: none} /* Remove list bullets */
 .view-navarts-blog .field-type-image{/* Float the blog images left */
@@ -59,3 +59,14 @@ h1 {
   text-align: center;
   width: 80px
 }
+/* Dropdowns */
+/*@media only screen and (min-width : 480px) {
+  .sf-menu li {
+    background: #000;
+  }
+  .sf-menu a, .sf-menu span{
+    color: #dd4310 !important;
+    font-family: "HelveticaNeueW01-77BdCn 692722", sans-serif;
+  }
+}
+*/
