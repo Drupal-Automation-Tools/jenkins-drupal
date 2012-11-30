@@ -1,0 +1,11 @@
+<?php
+function navarts_geography_install() {
+  
+}
+
+/**
+ * Create Demo Content for locations
+ */
+function navarts_geography_update_7001() {
+  navarts_geography_create_demo_locations();
+}

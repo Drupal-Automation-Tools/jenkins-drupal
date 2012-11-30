@@ -1,0 +1,1 @@
+This is a test readme file to verify synchronization with the Git repository.
