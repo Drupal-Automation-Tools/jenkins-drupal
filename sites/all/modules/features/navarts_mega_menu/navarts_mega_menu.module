@@ -17,4 +17,6 @@ function navarts_mega_menu_init() {
   // Responsive Behavior
   drupal_add_css($path . '/css/responsive.css', 'file');
   drupal_add_js($path . '/js/responsive.js', 'file');
+  /* Temporarily added fonts.com ref here */
+  drupal_add_js('http://fast.fonts.com/jsapi/ab00f64c-51b5-4c25-9cac-0e22938ef7a3.js');
 }
